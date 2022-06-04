@@ -1,0 +1,7 @@
+---
+# handlers file for firewalld
+- name: reload-firewalld
+  become: true
+  systemd:
+    name: firewalld
+    state: reloaded

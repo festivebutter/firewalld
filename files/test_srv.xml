@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>test_srv</short>
+  <description>test_srv service file for testing.</description>
+  <port protocol="tcp" port="5666"/>
+</service>

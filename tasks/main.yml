@@ -1,0 +1,29 @@
+---
+# tasks file for firewalld
+
+- name: playbook to add new service and activate it
+  become: true
+  copy:
+    src: files/test_srv.xml
+    dest: /etc/firewalld/services/test_srv.xml
+#  when:
+#    - ansible_distribution_major_version == "8"
+#    - "'odhi' in inventory_hostname"
+  notify:
+    - reload-firewalld
+  tags:
+    - copy_test_srv
+
+- name: Force handler to run at this point
+  meta: flush_handlers
+
+- name: Enable test_srv.xml firewalld service
+  become: true
+  firewalld:
+    service: test_srv
+    permanent: yes
+    state: enabled
+  notify:
+    - reload-firewalld
+  tags:
+    - enable_test_srv
