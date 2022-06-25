@@ -1,6 +1,6 @@
 Role Name
 =========
-
+Role to update firewalld configuration.
 A brief description of the role goes here.
 
 Requirements
